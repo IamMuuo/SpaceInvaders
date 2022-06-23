@@ -24,7 +24,9 @@ void Game::processEvents()
 void Game::render()
 {
     //  Draw the game sprites
-    ;
+    window.clear(); // clear the last frame
+
+    window.display();   //display the sprites into the current buffer
 }
 
 void Game::update()

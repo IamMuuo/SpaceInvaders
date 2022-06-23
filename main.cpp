@@ -2,7 +2,7 @@
 
 int main()
 {
-   Game spaceInvaders;
-   spaceInvaders.run();
+    Game spaceInvaders;
+    spaceInvaders.run();
     return 0;
 }
