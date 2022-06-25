@@ -8,15 +8,26 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/Window.hpp>
 
 struct Game
 {
     private:
         sf::RenderWindow window;
-        
-        void update();  // update the game
+        sf::Texture playerTexture;
+        sf::Sprite playerSprite;
+
+        // moving flags
+        bool isMovingDown = false,
+        isMovingUp = false,
+        isMovingRight = false,
+        isMovingLeft = false;
+
+        void handlePlayerInput(sf::Keyboard::Key& key, bool isPressed);        
+        void update(sf::Time deltaTime);  // update the game
         void processEvents();   // listen and process events
         void render();  // draw the game scenes
     public:
