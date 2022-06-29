@@ -16,4 +16,6 @@
 #define MAXFRAME 120 
 
 // Asset paths
+#define ARIAL_FONT_PATH "Assets/Fonts/arial.ttf"
+#define SANS_FONT_PATH "Assets/Fonts/sans.ttf"
 #define PLAYERTEXTURE "Assets/Sprites/Eagle.png"

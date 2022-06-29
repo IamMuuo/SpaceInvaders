@@ -19,6 +19,7 @@ struct Player
         sf::Sprite  playerSprite;
 
     public:
+        int health;
         Player();
         sf::Sprite& getDrawablePlayer();
         void move(const sf::Vector2f& movement);

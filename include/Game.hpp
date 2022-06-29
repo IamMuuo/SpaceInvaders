@@ -8,6 +8,7 @@
 #pragma once
 
 #include "Player.hpp"
+#include "Text.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -19,6 +20,7 @@ struct Game
     private:
         sf::RenderWindow window;
         Player player;
+        Text health;
         // moving flags
         bool isMovingDown = false,
         isMovingUp = false,
@@ -29,6 +31,7 @@ struct Game
         void update(sf::Time deltaTime);  // update the game
         void processEvents();   // listen and process events
         void render();  // draw the game scenes
+
     public:
         Game();  // initialize the window
 

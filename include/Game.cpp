@@ -1,6 +1,7 @@
 #include "Game.hpp"
 #include "Global.hpp"
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/Font.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Vector2.hpp>
@@ -14,6 +15,10 @@ Game::Game()
 : window(sf::VideoMode(WIDTH,HEIGHT), PROGRAM_NAME, sf::Style::Titlebar| sf::Style::Close)
 {
     window.setFramerateLimit(MAXFRAME);
+    health.font.loadFromFile(SANS_FONT_PATH);
+    health.setText("Hello!");
+    health.setCharacterSize(20);
+    health.setFont(health.font);
 }
 
 void Game::processEvents()
@@ -46,7 +51,9 @@ void Game::render()
 {
     //  Draw the game sprites
     window.clear(); // clear the last frame
+    window.draw(health.getDrawableText());
     window.draw(player.getDrawablePlayer());
+    
     window.display();   //display the sprites into the current buffer
 }
 
