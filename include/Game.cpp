@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "Global.hpp"
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/System/Time.hpp>
@@ -10,8 +11,9 @@
 
 
 Game::Game()
-: window(sf::VideoMode(800,600), "Space Invaders!", sf::Style::Titlebar| sf::Style::Close)
+: window(sf::VideoMode(WIDTH,HEIGHT), PROGRAM_NAME, sf::Style::Titlebar| sf::Style::Close)
 {
+    window.setFramerateLimit(MAXFRAME);
     if(!playerTexture.loadFromFile("/home/erick/Documents/SpaceInvaders/Assets/Sprites/Eagle.png"))
     {
         // Handle player
@@ -61,13 +63,13 @@ void Game::update(sf::Time deltaTime)
     sf::Vector2f movement(0.f,0.f);
 
     if(isMovingDown)
-        movement.y += 100.f;
+        movement.y += MAXFRAME;
     if(isMovingUp)
-        movement.y -= 100.f;
+        movement.y -= MAXFRAME;
     if(isMovingLeft)
-        movement.x -= 100.f;
+        movement.x -= MAXFRAME;
     if(isMovingRight)
-        movement.x += 100.f;
+        movement.x += MAXFRAME;
     
     playerSprite.move(movement * deltaTime.asSeconds());
 }
