@@ -7,6 +7,7 @@
 ******************************************************************/
 #pragma once
 
+#include "Player.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -17,9 +18,7 @@ struct Game
 {
     private:
         sf::RenderWindow window;
-        sf::Texture playerTexture;
-        sf::Sprite playerSprite;
-
+        Player player;
         // moving flags
         bool isMovingDown = false,
         isMovingUp = false,

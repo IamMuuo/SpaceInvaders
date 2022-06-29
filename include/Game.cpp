@@ -14,13 +14,6 @@ Game::Game()
 : window(sf::VideoMode(WIDTH,HEIGHT), PROGRAM_NAME, sf::Style::Titlebar| sf::Style::Close)
 {
     window.setFramerateLimit(MAXFRAME);
-    if(!playerTexture.loadFromFile("/home/erick/Documents/SpaceInvaders/Assets/Sprites/Eagle.png"))
-    {
-        // Handle player
-    }
-
-    playerSprite.setTexture(playerTexture);
-    playerSprite.setPosition(100.f,100.f);
 }
 
 void Game::processEvents()
@@ -53,7 +46,7 @@ void Game::render()
 {
     //  Draw the game sprites
     window.clear(); // clear the last frame
-    window.draw(playerSprite);
+    window.draw(player.getDrawablePlayer());
     window.display();   //display the sprites into the current buffer
 }
 
@@ -70,8 +63,9 @@ void Game::update(sf::Time deltaTime)
         movement.x -= MAXFRAME;
     if(isMovingRight)
         movement.x += MAXFRAME;
-    
-    playerSprite.move(movement * deltaTime.asSeconds());
+
+    player.move(movement*deltaTime.asSeconds());
+
 }
 void Game::run()
 {

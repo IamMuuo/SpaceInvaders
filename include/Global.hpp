@@ -14,3 +14,6 @@
 #define WIDTH 1280
 #define HEIGHT 900
 #define MAXFRAME 120 
+
+// Asset paths
+#define PLAYERTEXTURE "Assets/Sprites/Eagle.png"
