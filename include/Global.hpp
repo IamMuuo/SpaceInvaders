@@ -20,3 +20,5 @@
 #define SANS_FONT_PATH "Assets/Fonts/sans.ttf"
 #define PLAYERTEXTURE "Assets/Sprites/Eagle.png"
 #define HEALTHLOGO "Assets/Sprites/health.png"
+#define INVADERTEXTURE1 "Assets/Sprites/meteor.png"
+#define INVADERTEXTURE2 "Assets/Sprites/rocket.png"
