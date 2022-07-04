@@ -37,6 +37,8 @@ $ git clone https://github.com/IamMuuo/SpaceInvaders.git
 
 $ cd ~/path/to/the/cloned/repo
 
+$ make init
+
 $ make
 
 $ ./build/SpaceInvaders
