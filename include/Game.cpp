@@ -16,9 +16,13 @@ Game::Game()
 {
     window.setFramerateLimit(MAXFRAME);
     health.font.loadFromFile(SANS_FONT_PATH);
-    health.setText("Hello!");
+    health.setText("Score!");
     health.setCharacterSize(20);
     health.setFont(health.font);
+    health.setPosition(80, 20);
+    healthLogoTexture.loadFromFile(HEALTHLOGO);
+    healthLogoSprite.setTexture(healthLogoTexture);
+    healthLogoSprite.setScale(0.2,0.2);
 }
 
 void Game::processEvents()
@@ -51,6 +55,7 @@ void Game::render()
 {
     //  Draw the game sprites
     window.clear(); // clear the last frame
+    window.draw(healthLogoSprite);
     window.draw(health.getDrawableText());
     window.draw(player.getDrawablePlayer());
     

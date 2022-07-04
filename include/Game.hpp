@@ -12,6 +12,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/Window.hpp>
 
@@ -19,6 +20,8 @@ struct Game
 {
     private:
         sf::RenderWindow window;
+        sf::Texture healthLogoTexture;
+        sf::Sprite healthLogoSprite;
         Player player;
         Text health;
         // moving flags

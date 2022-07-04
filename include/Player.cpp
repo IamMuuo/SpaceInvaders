@@ -20,5 +20,6 @@ sf::Sprite& Player::getDrawablePlayer()
 
 void Player::move(const sf::Vector2f& movement)
 {
+    // bounds checking
     playerSprite.move(movement);
 }
