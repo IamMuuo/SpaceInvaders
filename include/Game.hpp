@@ -7,6 +7,7 @@
 ******************************************************************/
 #pragma once
 
+#include "Level.hpp"
 #include "Player.hpp"
 #include "Text.hpp"
 #include <SFML/Graphics.hpp>
@@ -24,6 +25,7 @@ struct Game
         sf::Sprite healthLogoSprite;
         Player player;
         Text health;
+        Level level;
         // moving flags
         bool isMovingDown = false,
         isMovingUp = false,

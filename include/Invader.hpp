@@ -17,8 +17,9 @@ struct Invader
 
     public:
         int health = 100;
-        float speed = 10.0f;
+        float speed = 0.01f;
         Invader();  // initialize the sprite and texture
+        void setPosition(float x, float y);
         const sf::Sprite& getDrawableInvader(); // return a drawable sprite.
         void setInvader(const sf::Texture& newTexture); // set a new texture for a new level
         void move(const sf::Vector2f& movement);    // move 

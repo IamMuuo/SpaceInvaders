@@ -15,6 +15,8 @@
 #define HEIGHT 900
 #define MAXFRAME 120 
 
+#define MINIMUM_ENEMIES 10
+
 // Asset paths
 #define ARIAL_FONT_PATH "Assets/Fonts/arial.ttf"
 #define SANS_FONT_PATH "Assets/Fonts/sans.ttf"

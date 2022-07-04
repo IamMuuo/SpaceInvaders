@@ -10,8 +10,8 @@ libs = -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system
 flags = -std=c++17 -g -Wall
 obj = -c
 
-SpaceInvaders: build/main.o build/game.o build/player.o build/text.o build/invader.o
-	$(c++) build/main.o build/game.o build/player.o  build/text.o build/invader.o -o build/SpaceInvaders $(flags) $(libs)
+SpaceInvaders: build/main.o build/game.o build/player.o build/text.o build/invader.o build/level.o
+	$(c++) build/main.o build/game.o build/player.o  build/text.o build/invader.o build/level.o -o build/SpaceInvaders $(flags) $(libs)
 
 build/main.o: main.cpp
 	$(c++) main.cpp -o build/main.o $(obj) $(flags)
@@ -27,6 +27,9 @@ build/text.o: include/Text.cpp
 
 build/invader.o: include/Invader.cpp
 	$(c++) include/Invader.cpp -o build/invader.o $(obj) $(flags)
+
+build/level.o: include/Level.cpp
+	$(c++) include/Level.cpp -o build/level.o $(obj) $(flags)
 init:
 	mkdir build
 clean:

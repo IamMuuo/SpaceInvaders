@@ -58,6 +58,7 @@ void Game::render()
     window.draw(healthLogoSprite);
     window.draw(health.getDrawableText());
     window.draw(player.getDrawablePlayer());
+    level.renderLevelInvaders(window);
     
     window.display();   //display the sprites into the current buffer
 }
@@ -78,6 +79,7 @@ void Game::update(sf::Time deltaTime)
 
     player.move(movement*deltaTime.asSeconds());
 
+    level.moveInvaders(sf::Vector2f(0.0f,0.01f));
 }
 void Game::run()
 {

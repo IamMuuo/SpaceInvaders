@@ -24,3 +24,8 @@ void Invader::move(const sf::Vector2f &movement)
 {
     this->invaderSprite.move(movement * speed); // move the invader
 }
+
+void Invader::setPosition(float x, float y)
+{
+    invaderSprite.setPosition(x,y);
+}
