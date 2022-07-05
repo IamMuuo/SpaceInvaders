@@ -16,9 +16,11 @@ struct Invader
         sf::Sprite invaderSprite;
 
     public:
+        bool isActive = false;  // check if the invader is on screen
         int health = 100;
         float speed = 0.01f;
         Invader();  // initialize the sprite and texture
+        Invader(sf::Texture& texture);
         void setPosition(float x, float y);
         const sf::Sprite& getDrawableInvader(); // return a drawable sprite.
         void setInvader(const sf::Texture& newTexture); // set a new texture for a new level

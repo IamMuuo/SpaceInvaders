@@ -80,6 +80,11 @@ void Game::update(sf::Time deltaTime)
     player.move(movement*deltaTime.asSeconds());
 
     level.moveInvaders(sf::Vector2f(0.0f,0.01f));
+
+    if(level.isLevelComplete())
+    {
+        level.nextLevel();
+    }
 }
 void Game::run()
 {

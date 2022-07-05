@@ -11,11 +11,13 @@ A level class to anage level utility
 struct Level 
 {
     Invader* invaders;
+    Invader* nextLevelInvaders;
     bool isClear = false;
     int numberOfInvaders = 0;
 
     Level();
     void nextLevel();
+    bool isLevelComplete();
     void renderLevelInvaders(sf::RenderWindow& win);
     void moveInvaders(const sf::Vector2f &movement);
     ~Level();
