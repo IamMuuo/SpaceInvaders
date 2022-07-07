@@ -25,14 +25,17 @@ struct Game
         sf::Sprite healthLogoSprite;
         Player player;
         Text health;
+        Text gameStatus;
         Level level;
         // moving flags
         bool isMovingDown = false,
         isMovingUp = false,
         isMovingRight = false,
-        isMovingLeft = false;
+        isMovingLeft = false,
+        paused = true;
 
-        void handlePlayerInput(sf::Keyboard::Key& key, bool isPressed);        
+        void handlePlayerInput(sf::Keyboard::Key& key, bool isPressed); 
+        void handlePlayerInputRelease(sf::Keyboard::Key& key, bool isPressed);        
         void update(sf::Time deltaTime);  // update the game
         void processEvents();   // listen and process events
         void render();  // draw the game scenes

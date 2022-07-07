@@ -37,7 +37,7 @@ void Game::processEvents()
                 break;
             
             case sf::Event::KeyReleased:
-                handlePlayerInput(event.key.code,false);
+                handlePlayerInputRelease(event.key.code,false);
                 break;
             
             case sf::Event::Closed:
@@ -53,12 +53,19 @@ void Game::processEvents()
 
 void Game::render()
 {
+    if(!paused){
     //  Draw the game sprites
     window.clear(); // clear the last frame
     window.draw(healthLogoSprite);
     window.draw(health.getDrawableText());
     window.draw(player.getDrawablePlayer());
     level.renderLevelInvaders(window);
+    }
+    else // handle pausing ..
+    {
+        window.clear();
+        window.draw(gameStatus.getDrawableText());
+    }
     
     window.display();   //display the sprites into the current buffer
 }
@@ -66,6 +73,8 @@ void Game::render()
 void Game::update(sf::Time deltaTime)
 {
     // Update sprites frames etc
+    if(!paused)
+    {
     sf::Vector2f movement(0.f,0.f);
 
     if(isMovingDown)
@@ -85,6 +94,15 @@ void Game::update(sf::Time deltaTime)
     {
         level.nextLevel();
     }
+    }
+    else
+    {
+        gameStatus.setCharacterSize(30);
+        gameStatus.setFont(health.font);
+        gameStatus.setColor(sf::Color::Green);
+        gameStatus.setPosition(WIDTH/20, HEIGHT/2);
+        gameStatus.setText("Game paused hit <Space>to continue..");
+    }
 }
 void Game::run()
 {
@@ -99,6 +117,27 @@ void Game::run()
 }
 
 void Game::handlePlayerInput(sf::Keyboard::Key& key, bool isPressed)
+{
+    // handle player input
+
+    if(key == sf::Keyboard::W)
+        isMovingUp = isPressed;
+    else if (key == sf::Keyboard::S)
+        isMovingDown = isPressed;
+    else if (key == sf::Keyboard::A)
+        isMovingLeft = isPressed;
+    else if (key == sf::Keyboard::D)
+        isMovingRight = isPressed;
+    else if (key == sf::Keyboard::Space)
+    {
+        if(paused)  // setting pause flags
+            paused = false;
+        else
+            paused = true;
+    }
+        
+}
+void Game::handlePlayerInputRelease(sf::Keyboard::Key& key, bool isPressed)
 {
     // handle player input
 
